@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const categories = ['All Posts', 'Recipes', 'Marketing', 'Travel', 'Life Lessons'];
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+---
+
+<Layout title="Home">
+
+  <!-- Hero -->
+  <section class="relative bg-[#2a2a2a] min-h-[60vh] flex flex-col items-center justify-end pb-16 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-[#2d2d2d] to-[#3a3535] opacity-90"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <h1 class="text-6xl md:text-8xl font-black text-white mb-4 leading-none">
+        Coasters and Cupcakes
+      </h1>
+      <p class="text-gray-300 text-lg md:text-xl">
+        Baker, Marketeer, Data Geek, Gym Nerd, Brand Ambassador, Selfie Enthusiast
+      </p>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="max-w-3xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-bold mb-6">Hey There,</h2>
+    <div class="space-y-5 text-gray-700 leading-relaxed text-lg">
+      <p>
+        You've somehow landed on my page... I'm sorry about that.
+      </p>
+      <p>
+        Let me introduce myself; I'm Tim Samson. Professionally, I currently serve as the Director of Marketing for
+        <a href="https://www.moreyspiers.com" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-black transition-colors">Morey's Piers &amp; Resorts</a>.
+        It's a world-class destination in Southern New Jersey that encompasses amusement piers, water parks, hotels,
+        restaurants, and games along the Wildwoods' famous boardwalk. I'm responsible for delivering a focused approach
+        to driving highly creative and effective marketing strategies to expand the brand's exposure, guest acquisition,
+        and retention. I'm a data enthusiast and get excited about what it can and cannot tell us.
+      </p>
+      <p>
+        When I'm not wearing my marketing hat, you might find me in the kitchen baking, appearing on the first season of
+        ABC's <em>"Great American Baking Show - Holiday Edition."</em> Besides baking, I'm a gym junkie, a selfie
+        enthusiast (I'm sorry in advance), and my partner and I love to travel, meet new people, see unique places,
+        and of course, taste fantastic food (we are bears and bears love food).
+      </p>
+      <p>
+        So I can't promise precisely what you will find here; it's a bit of a crap shoot that will likely blur
+        professional and personal lives, so expect a gym selfie, marketing story, cookie recipe, and travel photos
+        all in one place!
+      </p>
+      <p class="italic text-gray-500">— Hang on tight and keep your hands and arms in the vehicle at all times.</p>
+    </div>
+  </section>
+
+  <!-- Blog Feed -->
+  <section class="max-w-4xl mx-auto px-6 pb-20">
+    <div class="border-b border-gray-200 mb-10">
+      <nav class="flex gap-6 overflow-x-auto pb-0 -mb-px">
+        {categories.map((cat) => (
+          <button
+            class="category-btn whitespace-nowrap pb-3 text-sm font-medium border-b-2 transition-colors"
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </nav>
+    </div>
+
+    <div id="posts-list" class="space-y-10">
+      {posts.map((post) => (
+        <article
+          class="post-card flex flex-col sm:flex-row gap-6 group"
+          data-categories={post.data.categories.join(',')}
+        >
+          <a href={`/blog/${post.id}`} class="flex flex-col sm:flex-row gap-6 w-full">
+            <div class="sm:w-48 shrink-0 bg-gray-100 rounded-lg overflow-hidden aspect-[4/3] sm:aspect-auto">
+              <div class="w-full h-full min-h-32 bg-gradient-to-br from-gray-200 to-gray-300"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap gap-2 mb-2">
+                {post.data.categories.map((cat: string) => (
+                  <span class="text-xs font-semibold uppercase tracking-wide text-gray-500">{cat}</span>
+                ))}
+              </div>
+              <h2 class="text-xl font-bold mb-2 group-hover:underline leading-snug">
+                {post.data.title}
+              </h2>
+              <p class="text-gray-600 text-sm line-clamp-3 mb-3">{post.data.excerpt}</p>
+              <p class="text-xs text-gray-400">
+                {formatDate(post.data.date)} &middot; {post.data.readTime} min read
+              </p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.category-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.post-card');
+
+  function setActive(btn: HTMLButtonElement) {
+    buttons.forEach(b => {
+      b.classList.toggle('border-black', b === btn);
+      b.classList.toggle('text-black', b === btn);
+      b.classList.toggle('border-transparent', b !== btn);
+      b.classList.toggle('text-gray-500', b !== btn);
+    });
+  }
+
+  function filterPosts(category: string) {
+    cards.forEach(card => {
+      const cats = card.dataset.categories?.split(',') ?? [];
+      const show = category === 'All Posts' || cats.includes(category);
+      card.style.display = show ? '' : 'none';
+    });
+  }
+
+  // Init
+  const allBtn = document.querySelector<HTMLButtonElement>('[data-category="All Posts"]');
+  if (allBtn) setActive(allBtn);
+  filterPosts('All Posts');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setActive(btn);
+      filterPosts(btn.dataset.category!);
+    });
+  });
+</script>
