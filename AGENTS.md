@@ -32,7 +32,6 @@ Don't read DECISIONS, OPEN-QUESTIONS or log/ whole. Read BUILD-PLAN "Now", then 
 - Post front matter is Zod-enforced (`src/content.config.ts:4-14`); a bad field fails the build.
 - Filter chips are a fixed list in `src/pages/index.astro:9`; a new category needs a chip added there.
 - `/privacy` is a public OAuth-consent dependency: keep the URL and its scopes text accurate (see RUNBOOK).
-- README.md says Astro 5; package.json says `^6.3.3`. Code wins (Q1).
 - Never write secret values; none are needed in this repo.
 
 ## Current step
