@@ -7,7 +7,7 @@ purpose: Open questions.
 # Open questions
 
 ### Q1 · Astro version: README says 5, package.json says ^6.3.3
-- **Status:** open
+- **Status:** answered 2026-11-06 (README now says Astro 6; no decision needed)
 - **Context:** `README.md` line 7 vs `package.json`. Code wins; docs here say 6.
 - **Options:** fix README (recommended).
 - **Owner:** Claude (next docs touch)

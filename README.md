@@ -4,7 +4,7 @@
 
 **Live:** https://timsamson.com · Cloudflare Pages project `timsamson-com`
 
-Astro 5 with Tailwind. A hero, a bio, and a category-filtered post list; posts are Markdown in an
+Astro 6 with Tailwind. A hero, a bio, and a category-filtered post list; posts are Markdown in an
 Astro content collection.
 
 > This is the personal site. It is **not** RocketRez or iQueue infrastructure — those live on the

@@ -21,3 +21,11 @@ purpose: Step log, 2026-11-06.
 - **Open questions:** Q2 answered; Q5 raised; Q3 open.
 - **Next:** Tim lists roadmap steps for Q3.
 - **Branch / PR:** `docs/runbook-pages-deploy-facts`
+
+### 20:20 · Fix README Astro version (Q1 closed)
+- **Goal:** make README match `package.json` (`^6.3.3`).
+- **Done:** README.md line 7 now says Astro 6; Q1 marked answered; removed the stale trap line from AGENTS.md.
+- **Verified:** diff reviewed; docs and README only, build not run.
+- **Decisions:** none
+- **Open questions:** Q1 answered; Q3, Q5 still open.
+- **Next:** Tim lists roadmap steps for Q3.
