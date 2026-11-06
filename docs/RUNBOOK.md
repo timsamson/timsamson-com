@@ -9,7 +9,8 @@ purpose: How to deploy, operate and fix it.
 ## Deploy
 - Push to `main` deploys via Cloudflare Pages project `timsamson-com` (README.md). Use a branch and PR; merge only with Tim's yes.
 - Verified 2026-11-06 (`wrangler pages project list` and `pages deployment list --project-name timsamson-com`): Git provider attached; production branch is `main`; merging PR #2 (4188f73) produced a Production deployment ~39 min before the check; PR branches get Preview deployments (`docs/bootstrap-agents-md`, f5be16a). Domains: `timsamson-com.pages.dev`, `timsamson.com`.
-- Not readable from the CLI: build command, output dir, Node version (Q2). Read them in the Cloudflare dashboard (Pages > timsamson-com > Settings > Builds).
+- Dashboard settings (Pages > timsamson-com > Settings, read 2026-11-06 from screenshots): build command `npm run build`; output `dist`; root directory empty; build system version 3; build cache disabled; watch paths `*`; production branch `main`, automatic deployments on; no deploy hooks; no variables or secrets (so Node version is the build system v3 default, not pinned); compatibility date `2026-05-15`, no flags; preview deployments are public (no Cloudflare Access).
+- `wrangler.toml` says compatibility date `2024-01-01`; the dashboard says `2026-05-15` (Q5).
 - Local check before PR: `npm ci && npm run build`.
 
 ## Rollback
