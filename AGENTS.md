@@ -1,6 +1,6 @@
 ---
 status: current
-updated: 2026-11-05
+updated: 2026-11-06
 purpose: Agent entry point. Read this first.
 ---
 
@@ -36,4 +36,4 @@ Don't read DECISIONS, OPEN-QUESTIONS or log/ whole. Read BUILD-PLAN "Now", then 
 - Never write secret values; none are needed in this repo.
 
 ## Current step
-Review and merge the docs bootstrap PR (branch `docs/bootstrap-agents-md`). Log: docs/log/2026-11-05-docs-bootstrap.md
+Q2: copy Pages build command, output dir and Node version from the dashboard into docs/RUNBOOK.md. Log: docs/log/2026-11-06-pages-deploy-facts.md

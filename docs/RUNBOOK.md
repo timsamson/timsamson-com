@@ -1,6 +1,6 @@
 ---
 status: draft
-updated: 2026-11-05
+updated: 2026-11-06
 purpose: How to deploy, operate and fix it.
 ---
 
@@ -8,10 +8,12 @@ purpose: How to deploy, operate and fix it.
 
 ## Deploy
 - Push to `main` deploys via Cloudflare Pages project `timsamson-com` (README.md). Use a branch and PR; merge only with Tim's yes.
+- Verified 2026-11-06 (`wrangler pages project list` and `pages deployment list --project-name timsamson-com`): Git provider attached; production branch is `main`; merging PR #2 (4188f73) produced a Production deployment ~39 min before the check; PR branches get Preview deployments (`docs/bootstrap-agents-md`, f5be16a). Domains: `timsamson-com.pages.dev`, `timsamson.com`.
+- Not readable from the CLI: build command, output dir, Node version (Q2). Read them in the Cloudflare dashboard (Pages > timsamson-com > Settings > Builds).
 - Local check before PR: `npm ci && npm run build`.
 
 ## Rollback
-- Not recorded. Revert the commit on `main`, or redeploy a prior deployment in the Cloudflare Pages dashboard (unverified; Q2).
+- Not recorded. Revert the commit on `main`, or redeploy a prior deployment in the Cloudflare Pages dashboard (unverified; Q2). Deployments list via `npx wrangler pages deployment list --project-name timsamson-com`.
 
 ## Scheduled jobs
 - None in the repo.

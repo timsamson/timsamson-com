@@ -1,6 +1,6 @@
 ---
 status: current
-updated: 2026-11-05
+updated: 2026-11-06
 purpose: Open questions.
 ---
 
@@ -13,7 +13,7 @@ purpose: Open questions.
 - **Owner:** Claude (next docs touch)
 
 ### Q2 · Pages build settings and Git provider config are not in the repo
-- **Status:** open
+- **Status:** open (partly answered 2026-11-06: Git provider, production branch `main` and preview deploys verified, see RUNBOOK; build command, output dir and Node version still need the dashboard)
 - **Context:** Build command, output dir, production branch and Node version live in the Cloudflare dashboard; `wrangler.toml` has name and compatibility date only. Could not be verified from code.
 - **Options:** record them in RUNBOOK after checking the dashboard.
 - **Owner:** Tim
