@@ -29,3 +29,12 @@ purpose: Step log, 2026-11-06.
 - **Decisions:** none
 - **Open questions:** Q1 answered; Q3, Q5 still open.
 - **Next:** Tim lists roadmap steps for Q3.
+
+### 20:40 · Close Q3, no roadmap
+- **Goal:** answer Q3 with Tim.
+- **Done:** Tim chose "nothing planned"; recorded D-004, closed Q3, updated BUILD-PLAN (also ticked the stale bootstrap-merge item), SOLUTION and AGENTS.md current step.
+- **Verified:** docs only; relative links checked; build not run.
+- **Decisions:** D-004
+- **Open questions:** Q3 answered; Q5 still open (low priority).
+- **Next:** Q5 on the next code touch; otherwise idle.
+- **Branch / PR:** `docs/close-q3-no-roadmap`

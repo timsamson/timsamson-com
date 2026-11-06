@@ -1,6 +1,6 @@
 ---
 status: current
-updated: 2026-11-05
+updated: 2026-11-06
 purpose: What is built versus planned.
 ---
 
@@ -12,4 +12,4 @@ purpose: What is built versus planned.
 - Categories: Recipes, Marketing, Travel, Life Lessons (`src/pages/index.astro:9`).
 
 ## Planned
-- None recorded. Roadmap is Tim's call (Q3).
+- None planned (D-004).
