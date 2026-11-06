@@ -19,7 +19,7 @@ purpose: Open questions.
 - **Owner:** Tim
 
 ### Q3 · What is the roadmap for the site?
-- **Status:** open
+- **Status:** answered 2026-11-06 → D-004
 - **Context:** No plan, issues or TODOs found in the repo or history; BUILD-PLAN has no later phases.
 - **Options:** Tim lists next steps; add as BUILD-PLAN phases.
 - **Owner:** Tim

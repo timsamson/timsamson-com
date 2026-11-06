@@ -1,6 +1,6 @@
 ---
 status: current
-updated: 2026-11-05
+updated: 2026-11-06
 purpose: Decisions. Accepted records are never edited.
 ---
 
@@ -25,3 +25,9 @@ Backfilled from history; "Why" is inferred and marked as such.
 - **Decision:** `timsamson.com/privacy` is the policy URL for the Google OAuth consent screen.
 - **Why:** from f4f8115 ("Google's consent screen links to timsamson.com/privacy ... agent-platform D-067").
 - **Affects:** `src/pages/privacy.astro`
+
+### D-004 · No roadmap for the site
+- **Status:** accepted · 2026-11-06
+- **Decision:** nothing is planned; the site stays as built until Tim asks for new work.
+- **Why:** Tim answered Q3 with "nothing planned". Alternatives offered and not chosen: new posts, design refresh, RSS and SEO.
+- **Affects:** docs/BUILD-PLAN.md (Later), docs/SOLUTION.md
